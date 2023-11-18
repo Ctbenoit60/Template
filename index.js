@@ -1,14 +1,23 @@
-function addCard() {
+function addCard(title = " Untitles", text = "Missing Text") {
     // clone the template
     const template = 
-    document.getElementById("card-template").contentEditable.cloneNode(true);
+    document.getElementById("card-template").content.cloneNode(true);
 
     // populate the template
-    template. querySelector('.card-title').innerText = 'My Card';
-    template. querySelector('.card-text').innerText = 'This is my card not yours';
+    template. querySelector('.card-title').innerText = title;
+    template. querySelector('.card-text').innerText = text;
 
     //include the populated template into the page
     document.querySelector('#card-list').appendChild(template);
 }
 
 addCard();
+
+const data = [
+    { name: "Christina", age: 30 },
+    { name: "Sam", age: 31 },
+  ];
+  
+  data.forEach(person => {
+      addCard(person.name, `Age: ${person.age}`)
+  })
